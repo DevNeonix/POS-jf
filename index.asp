@@ -227,10 +227,8 @@ function centro(opc)
     {
         USS = trim(top.window.document.all.usero.value)
         //alert(USS)
-        if (USS == 'CSABA' || USS == 'SISTEMAS' || USS == 'JFARAH' || USS == '1')
-        { cad = "contingencia.asp" }
-        else
-        { cad = "blanco.htm" }
+        cad = "contingencia.asp"
+       
     }
     else
     { cad = "blanco.htm" }
@@ -309,6 +307,7 @@ RS.Open CAD, Cnn%>
                 <li><a href="javascript:centro(25)">Transferencias - Salida</a></li>    
                 <li><a href="javascript:centro(26)">Vales Especiales</a></li> 
                 <li><a href="javascript:centro(27)">Doc. Real eFact</a></li> 
+                <li><a href="javascript:centro(703)">Contingencia / Manual</a></li>
             </ul>
         </li>
         
