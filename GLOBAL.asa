@@ -1,0 +1,75 @@
+<SCRIPT LANGUAGE='VBScript' RUNAT='Server'> 
+ 
+'Puede agregar controladores de evento especiales a este archivo que se ejecuten automáticamente al 
+'producirse eventos de páginas Active Server. Para ello, cree una subrutina y déle un nombre de la 
+'lista siguiente que se corresponda con el evento que desea utilizar. Por ejemplo, para crear un 
+'controlador de evento para Session_OnStart, debe insertar el siguiente código en 
+'este archivo (sin comentarios): 
+ 
+'Sub Session_OnStart 
+'**Inserte el código aquí ** 
+'End Sub 
+ 
+'EventName              Descripción 
+'Session_OnStart        Se ejecuta la primera vez que un usuario abre cualquier página de la aplicación 
+'Session_OnEnd          Se ejecuta cuando finaliza el tiempo de espera de la sesión de un usuario o éste sale de la aplicación 
+'Application_OnStart    Se ejecuta una vez cuando un usuario abre por primera vez la primera página de la aplicación 
+'Application_OnEnd      Se ejecuta una vez cuando se apaga el servidor Web 
+</SCRIPT>
+
+<SCRIPT LANGUAGE='VBScript' RUNAT='Server'> 
+Sub Application_OnStart
+'Variables de entorno
+
+	Application("AppName") = "VENTAS"
+'***********************************************************************************************
+'   ESTE ES EL QUE ESTOY USANDO EN EL SERVER DE HITEPIMA
+'***********************************************************************************************
+'	Application("ConStr") = "DRIVER={SQL Server};SERVER=localhost;Database=ventas;Uid=vendedor;PWD=c4r4m3l1t0$"
+'***********************************************************************************************
+'   ESTE ES EL QUE ESTOY USANDO EN LA CASA
+'***********************************************************************************************
+	Application("ConStr")= "Provider=SQLOLEDB.1;Data Source=Mabel-pc;Initial Catalog=JACINTA; User id=sa; Password=c4r4m3l1t0;"
+'***********************************************************************************************
+
+'   ESTE ES EL QUE ESTOY USANDO EN EL SERVER DEL HOST
+'***********************************************************************************************
+' Application("ConStr")= "Provider=SQLOLEDB.1;Data Source=192.168.3.4;Initial Catalog=JACINTA; User id=SA; Password=F3QY17;"
+
+
+
+'***********************************************************************************************
+'   ESTE ES EL QUE ESTOY USANDO EN EL SERVER De DESARROLLO PARA LA CAPACITACION TIENDAS
+'***********************************************************************************************
+'	Application("ConStr")= "Provider=SQLOLEDB.1;Data Source=192.168.3.30,1433;Initial Catalog=JACINTA;User ID=SA;Password=c4r4m3l1t0;"
+'***********************************************************************************************
+
+Application("color1")       = "#dbdbdb" 	' gris
+Application("color2")       = "#FFFFFF"  	' blanco
+Application("BARRA")        = "#F9C1D9"		' ROSA
+Application("head")         = "#C82F8A"		' MAGENTA
+Application("BORDE")        = "#999999"		' GRAFITO
+Application("titulo")       = "#C82F8A"		' AZULINO OSCURO
+Application("resalte")      = "#FF6600"		' NARANJA OSCURO
+Application("contraste")    = "#009900"		' VERDE OSCURO
+Application("subtot")       = "#c4c4c4"     ' GAINSBORO
+Application("owner")        = "dbo"
+
+
+End Sub 
+</SCRIPT>
+
+<SCRIPT LANGUAGE='VBScript' RUNAT='Server'> 
+Sub Session_OnStart
+		Session.Timeout=600
+		startPage = "/" & Application("AppName") & "/INDEX.ASP"
+		currentPage = Request.ServerVariables("SCRIPT_NAME")
+		
+
+
+End Sub
+</SCRIPT>
+
+<SCRIPT LANGUAGE='VBScript' RUNAT='Server'> 
+
+</SCRIPT>

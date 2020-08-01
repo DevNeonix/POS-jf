@@ -1,0 +1,4 @@
+USE [master]
+GO
+ALTER DATABASE [VENTAS] COLLATE sql_Latin1_General_CP1_CI_AI
+GO

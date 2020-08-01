@@ -1,0 +1,176 @@
+-- disable all constraints 
+EXEC sp_msforeachtable "ALTER TABLE ? NOCHECK CONSTRAINT all" 
+
+-- HAY QUE ELIMINAR LOS VIEWS PORQUE DAN PROBLEMAS
+DROP VIEW [dbo].[View_ARTICULOS_TIENDA]
+/****** Object:  ForeignKey [FK__ARTICULOS__TIEND__6A30C649]    Script Date: 01/15/2012 09:37:31 ******/
+ALTER TABLE [dbo].[ARTICULOS] DROP CONSTRAINT [FK__ARTICULOS__TIEND__6A30C649]
+GO
+/****** Object:  ForeignKey [FK__SALDOS__19DFD96B]    Script Date: 01/15/2012 09:37:47 ******/
+ALTER TABLE [dbo].[SALDOS] DROP CONSTRAINT [FK__SALDOS__19DFD96B]
+GO
+/****** Object:  ForeignKey [FK__SALDOS__TIENDA__7E37BEF6]    Script Date: 01/15/2012 09:37:47 ******/
+ALTER TABLE [dbo].[SALDOS] DROP CONSTRAINT [FK__SALDOS__TIENDA__7E37BEF6]
+GO
+ALTER TABLE [dbo].[CLIENTES] DROP CONSTRAINT  PK__CLIENTES__1BC821DD
+GO
+ALTER TABLE TIENDAS ALTER COLUMN CODIGO char(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE TIENDAS ALTER COLUMN DESCRIPCION char(100) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE TIENDAS ALTER COLUMN USUARIO char(10) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ARTICULOS ALTER COLUMN TIENDA char(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ARTICULOS ALTER COLUMN CODIGO char(25) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ARTICULOS ALTER COLUMN USUARIO char(10) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ARTICULOS ALTER COLUMN ESTADO char(1) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE caja ALTER COLUMN ccia nchar(4) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE caja ALTER COLUMN noperacion nchar(20) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE caja ALTER COLUMN cpunto nchar(4) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE caja ALTER COLUMN tpago nchar(4) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE caja ALTER COLUMN cmoneda nchar(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE caja ALTER COLUMN nvoucher nchar(40) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE caja ALTER COLUMN ncheque nchar(40) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE caja ALTER COLUMN cbanco nchar(4) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE caja ALTER COLUMN ntarjeta nchar(40) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE caja ALTER COLUMN dautoriza nchar(60) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE caja ALTER COLUMN hoperacion nchar(16) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE caja ALTER COLUMN cusuacreac nchar(16) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE caja ALTER COLUMN cactividad nchar(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE cajacab ALTER COLUMN ccia nchar(4) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE cajacab ALTER COLUMN naperturacaja nchar(14) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE cajacab ALTER COLUMN hapertura nchar(16) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE cajacab ALTER COLUMN cusuaini nchar(16) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE cajacab ALTER COLUMN hcierrecaja nchar(16) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE cajacab ALTER COLUMN cusuafin nchar(16) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE cajacab ALTER COLUMN cactividad nchar(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE CLIENTES ALTER COLUMN CLIENTE nchar(22) COLLATE  SQL_Latin1_General_CP1_CI_AS NOT NULL;
+ALTER TABLE CLIENTES ALTER COLUMN NOMBRE nchar(100) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE CLIENTES ALTER COLUMN DIRECCION nchar(200) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE CLIENTES ALTER COLUMN TIPOCLI nchar(4) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE CLIENTES ALTER COLUMN MAIL nchar(6) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE CLIENTES ALTER COLUMN FONO nchar(20) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE CLIENTES ALTER COLUMN USUARIO char(10) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE CLIENTES ALTER COLUMN ESTADO char(1) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE documento ALTER COLUMN CIA nchar(4) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE documento ALTER COLUMN CODIGO nchar(4) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE documento ALTER COLUMN DESCRIPCION nchar(50) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE documento ALTER COLUMN SERIE nchar(6) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE documento ALTER COLUMN CORREL nchar(14) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE documento ALTER COLUMN TIPMOV char(1) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE documento ALTER COLUMN USUARIO char(10) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE documento ALTER COLUMN ESTADO char(1) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE kardexart ALTER COLUMN ccia nchar(4) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE kardexart ALTER COLUMN noperacion nchar(20) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE kardexart ALTER COLUMN tmovim nchar(6) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE kardexart ALTER COLUMN tventa nchar(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE kardexart ALTER COLUMN cproducto nchar(26) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE kardexart ALTER COLUMN cmoneda nchar(4) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE kardexart ALTER COLUMN sorimovim nchar(20) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE kardexart ALTER COLUMN nopeorigen nchar(20) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE kardexart ALTER COLUMN hoperacion nchar(16) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE kardexart ALTER COLUMN cusuacreac nchar(16) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE kardexart ALTER COLUMN nlinea nchar(6) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE kardexart ALTER COLUMN cmonecos nchar(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN ccia nchar(4) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN noperacion nchar(20) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN noperaexto nchar(20) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN nopemov nchar(20) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN tmovim nchar(6) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN tventa nchar(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN tmovimie nchar(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN cdocum nchar(4) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN nserie nchar(6) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN ndocum nchar(14) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN dobserva nchar(100) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN ddompartida nchar(100) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN ddestino nchar(100) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN transportista nchar(100) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN domdestino nchar(100) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN nombretxt nchar(30) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN ccliente nchar(22) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN cproveedor nchar(22) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN cmoneda nchar(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN cigv nchar(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN hoperacion nchar(16) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN cvendedor nchar(8) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN cbandera nchar(4) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN cactividad nchar(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN cusuacreac nchar(20) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN hcreac nchar(16) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN cusuaactua nchar(16) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN hactua nchar(16) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN noperef nchar(20) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN ndocref nchar(20) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN nordcompra nchar(14) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN ctransfer nchar(4) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN liconducir nchar(100) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN nombrechofer nchar(100) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN certificado nchar(100) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimcab ALTER COLUMN nrovehiculo nchar(100) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimdet ALTER COLUMN noperacion nchar(20) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimdet ALTER COLUMN scliente nchar(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimdet ALTER COLUMN cproducto nchar(26) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimdet ALTER COLUMN nlinea nchar(6) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimdet ALTER COLUMN ccomanda nchar(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimdet ALTER COLUMN cactividad nchar(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimdet ALTER COLUMN hoperacion nchar(16) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimdet ALTER COLUMN cmoneda nchar(4) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimdet ALTER COLUMN dotros nchar(200) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE movimdet ALTER COLUMN cmonecos nchar(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE pago ALTER COLUMN CODIGO nchar(4) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE pago ALTER COLUMN DESCRIPCION nchar(60) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE pago ALTER COLUMN USUARIO nchar(20) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE pago ALTER COLUMN ESTADO char(1) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE SALDOS ALTER COLUMN TIENDA char(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE SALDOS ALTER COLUMN CODIGO char(25) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE SALDOS ALTER COLUMN USUARIO char(10) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE SALDOS ALTER COLUMN ESTADO char(1) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE TIPMOV ALTER COLUMN CODIGO char(1) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE TIPMOV ALTER COLUMN DESCRIPCION char(50) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE TIPMOV ALTER COLUMN USUARIO char(10) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE USUARIOS ALTER COLUMN USUARIO char(15) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN ccia nchar(4) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN noperacion nchar(20) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN noperaexto nchar(20) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN noperaprof nchar(20) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN nopemov nchar(20) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN tmovim nchar(6) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN tventa nchar(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN cdocum nchar(4) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN nserie nchar(6) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN ndocum nchar(14) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN nombretxt nchar(30) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN ccliente nchar(22) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN cmoneda nchar(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN cigv nchar(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN hoperacion nchar(16) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN cvendedor nchar(8) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN cbandera nchar(4) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN cactividad nchar(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN noperef nchar(20) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN ndocref nchar(20) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN cusuacreac nchar(20) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN hcreac nchar(16) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN cusuaactua nchar(16) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN hactua nchar(16) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventacab ALTER COLUMN nordcompra nchar(14) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventadet ALTER COLUMN noperacion nchar(20) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventadet ALTER COLUMN scliente nchar(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventadet ALTER COLUMN cproducto nchar(26) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventadet ALTER COLUMN nlinea nchar(6) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventadet ALTER COLUMN ccomanda nchar(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventadet ALTER COLUMN cactividad nchar(2) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventadet ALTER COLUMN hoperacion nchar(16) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventadet ALTER COLUMN cmoneda nchar(4) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventadet ALTER COLUMN cdocum nchar(4) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventadet ALTER COLUMN nserie nchar(6) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventadet ALTER COLUMN ndocum nchar(14) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventadet ALTER COLUMN nopeserv nchar(20) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+ALTER TABLE ventadet ALTER COLUMN dotros nchar(200) COLLATE  SQL_Latin1_General_CP1_CI_AS;
+
+
+-- enable all constraints 
+exec sp_msforeachtable @command1="print '?'", @command2="ALTER TABLE ? WITH CHECK CHECK CONSTRAINT all" 
+
+ALTER TABLE [dbo].[CLIENTES] ADD PRIMARY KEY (CLIENTE)
+
+-- VUELVE A CREAR EL VIEW DE TIENDAS - ARTICULOS
+--EJECUTAR EL SQL PARA VOLVER A CREAR EL VIEW DE ARTICULOS TIENDA

@@ -1,0 +1,1 @@
+select * from al0012arti where ar_ccodigo   LIKE '18143%'

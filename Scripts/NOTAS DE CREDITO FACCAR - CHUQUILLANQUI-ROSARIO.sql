@@ -1,0 +1,5 @@
+UPDATE 
+--SELECT     FROM            
+RSFACCAR..FT0012ACUC
+SET F5_CRFTD = 'BV'
+WHERE        (F5_CTD = 'NC') AND (F5_CRFTD = '')

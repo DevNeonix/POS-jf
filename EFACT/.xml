@@ -1,0 +1,1 @@
+{"timestamp":1596163634923,"status":500,"error":"Internal Server Error","exception":"org.springframework.security.web.firewall.RequestRejectedException","message":"org.springframework.security.web.firewall.RequestRejectedException: The request was rejected because the URL was not normalized.","path":"/api-efact-ose/v1//"}
